@@ -7,18 +7,23 @@ using System.Threading.Tasks;
 
 namespace TextJSonSample
 {
-    public class DataStructure
+    public class Persona
     {
-        [JsonPropertyNameAttribute("FirstName")]
+        [JsonPropertyNameAttribute("Nombre")]
         public string Name { get; set; }
-        public List<int> Identifiers { get; set; }
+        public Guid idCliente { get; set; }
+
+        public string apellidos { get; set; }
+
+        public List<Coches> Coches { get; set; }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("Name:{0}", Name);
-            sb.AppendFormat("Identifiers: {0}", string.Join<int>(",", Identifiers));
-
+            sb.AppendFormat("ID Cliente:{0}", idCliente);
+            sb.AppendFormat("Nombre:{0}", Name);
+            sb.AppendFormat("Apellidos:{0}", apellidos);
+            sb.AppendFormat("Coches: {0}", Coches);
             return sb.ToString();
         }
     }
